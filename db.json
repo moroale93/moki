@@ -1,3 +1,10 @@
 {
-  "projects": []
+  "projects": [
+    {
+      "name": "Ale",
+      "baseEndpoint": "efwef",
+      "id": "96431895",
+      "services": []
+    }
+  ]
 }

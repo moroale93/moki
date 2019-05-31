@@ -1,7 +1,21 @@
 {
-  "name": "mock-server",
-  "main": "server.js",
+  "name": "moki",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
+    "formik": "^1.5.7",
+    "moment": "2.24.0",
+    "node-sass": "4.12.0",
+    "prop-types": "15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "7.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-test-renderer": "^16.8.6",
+    "redux": "4.0.1",
+    "redux-logger": "3.0.6",
+    "redux-thunk": "2.3.0",
+    "yup": "^0.27.0",
     "body-parser": "1.17.1",
     "express": "4.15.2",
     "method-override": "2.3.7",
@@ -12,5 +26,35 @@
     "lowdb": "1.0.0",
     "underscore": "1.9.1",
     "express-remove-route": "1.0.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.1",
+    "react-scripts": "3.0.1",
+    "redux-devtools-extension": "2.13.8",
+    "react-app-polyfill": "1.0.1"
+  },
+  "scripts": {
+    "start": "npm run build && node server.js",
+    "startFrontend": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "testCoverage": "react-scripts test --coverage",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

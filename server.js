@@ -6,7 +6,7 @@ var methodOverride = require('method-override');
 var cors = require('cors');
 var path= require('path');
 
-var utils = require('./src/utils');
+var utils = require('./srcBackend/utils');
 
 // configuration ===========================================
 var port = process.env.PORT || 9080; // set our port
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 
 
-app.use("/", express.static(path.resolve(__dirname + "/frontend/build")));
+app.use("/", express.static(path.resolve(__dirname + "/build")));
 
 app.use(cors());
 
@@ -29,7 +29,7 @@ app.use(cors());
 app.use('/mocks', utils.basicAuth('admin', 'admin'));
 
 // routes ==================================================
-require('./src/mockServices')(app); // pass our application into our routes
+require('./srcBackend/mockServices')(app); // pass our application into our routes
 // start app ===============================================
 
 app.listen(port);

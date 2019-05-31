@@ -1,0 +1,24 @@
+.author-name {
+    font-weight: bold;
+    color: $fb-color;
+    font-size: 1.1em;
+    padding-right: 5px;
+}
+
+.date {
+    text-align: right;
+    color: gray;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.clearfix{
+    clear: both;
+}
+
+.val-error {
+    color: red;
+    font-size: 0.7em;
+    margin-bottom: 12px;
+    padding-left: 15px;
+}
