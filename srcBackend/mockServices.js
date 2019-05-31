@@ -41,6 +41,9 @@ module.exports = function(app) {
   //delete service of a project
   app.delete("/projects/:id/services/:serviceId", manageServices.deleteService);
 
+  //edit service of a project
+  app.post("/projects/:id/services/:serviceId", manageServices.editService);
+
   //restore
   const dbSituation = db.value();
   if(dbSituation && dbSituation.projects){

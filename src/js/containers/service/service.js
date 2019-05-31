@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {updateServices} from '../../actions/projectActions';
+import {updateServices,editService} from '../../actions/projectActions';
 import ServiceEditor from "../serviceEditor/serviceEditor";
 import './service.css';
 
@@ -10,7 +10,7 @@ export class Service extends Component {
   }
 
   onEditService=(service)=>{
-    console.log("mod", service);
+    this.props.editService(this.props.project.id, service);
   }
 
   render(){
@@ -38,7 +38,8 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = {
-  updateServices
+  updateServices,
+  editService
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Service);

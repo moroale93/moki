@@ -180,6 +180,27 @@ module.exports = function(app, db) {
                 });
             }
         },
+        editService:function(req, res) {
+            var project = db.get("projects").find({ id: req.params.id });
+            if(project.value()){
+                var service = project.get("services").find({ id: req.params.serviceId });
+                if(service.value()){
+                    const servicesEndpoint= config.baseEndpoint + "/" + project.value().baseEndpoint + "/"+ service.value().endpoint;
+                    removeRoute(app, servicesEndpoint);
+                    service.assign(req.body).write();
+                    createService(app, db, project.value(), service.value());
+                    res.send(project.get("services")); 
+                }else{
+                    res.status(401).send({
+                        message: "The service does not exists"
+                    });
+                }
+            }else{
+                res.status(401).send({
+                    message: "The project does not exists"
+                });
+            }
+        },
         createService:function(project, service){
             return createService(app, db, project, service);
         }

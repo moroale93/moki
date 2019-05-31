@@ -222,3 +222,38 @@ export const deleteService = (idProject, idService)=>{
         });
     }
 };
+
+
+export const editService = (idProject, service)=>{
+    return  (dispatch) => {
+        dispatch({
+            type: CHANGE_LOADING_SERVICES,
+            payload: { idProject, loading: true }
+        });
+        fetch(baseUrl+"/projects/"+idProject+"/services/"+service.id, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(service)
+        })
+        .then((response)=>{
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+            return response.json();
+        })
+        .then(()=>{
+            dispatch(updateServices());
+        })
+        .catch(()=>{
+            dispatch(showError("Errore inaspettato..."));
+        })
+        .finally(()=>{
+            dispatch({
+                type: CHANGE_LOADING_SERVICES,
+                payload: { idProject, loading: false }
+            });
+        });
+    }
+};

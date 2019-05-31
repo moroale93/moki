@@ -6,26 +6,14 @@
       "id": "96431895",
       "services": [
         {
-          "id": "569144832",
-          "description": "ewggweg",
-          "endpoint": "wegweg",
-          "method": "POST",
+          "id": "1648739222",
+          "description": "weqwewefwesdvsdvsd",
+          "endpoint": "qweqwe",
+          "method": "GET",
           "errorCode": 500,
           "successBody": "{}",
           "respError": false,
           "errorBody": "{}"
-        },
-        {
-          "id": "760618052",
-          "description": "qwdqwd",
-          "endpoint": "qwdqw",
-          "method": "POST",
-          "errorCode": 500,
-          "successBody": "{}",
-          "respError": false,
-          "errorBody": {
-            "message": "Something went wrong"
-          }
         }
       ]
     }
