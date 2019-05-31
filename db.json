@@ -4,7 +4,30 @@
       "name": "Ale",
       "baseEndpoint": "efwef",
       "id": "96431895",
-      "services": []
+      "services": [
+        {
+          "id": "569144832",
+          "description": "ewggweg",
+          "endpoint": "wegweg",
+          "method": "POST",
+          "errorCode": 500,
+          "successBody": "{}",
+          "respError": false,
+          "errorBody": "{}"
+        },
+        {
+          "id": "760618052",
+          "description": "qwdqwd",
+          "endpoint": "qwdqw",
+          "method": "POST",
+          "errorCode": 500,
+          "successBody": "{}",
+          "respError": false,
+          "errorBody": {
+            "message": "Something went wrong"
+          }
+        }
+      ]
     }
   ]
 }

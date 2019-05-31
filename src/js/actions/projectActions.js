@@ -1,13 +1,16 @@
 import {UPDATE_PROJECTS, ADD_SERVICES, ADD_PROJECT, CHANGE_LOADING_PROJECTS, CHANGE_LOADING_SERVICES, UPDATE_SERVICES, DELETE_PROJECTS, DELETE_SERVICE} from "./actionTypes";
 import {showError} from './appActions';
 
+const isLocal=true;
+let baseUrl=isLocal?"http://localhost:9080":""
+
 export const addService= (idProject, service) =>{
     return  (dispatch) => {
         dispatch({
             type: CHANGE_LOADING_SERVICES,
             payload: { idProject, loading: true }
         });
-        fetch("/projects/"+idProject+"/services", {
+        fetch(baseUrl+"/projects/"+idProject+"/services", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +48,7 @@ export const addProject= (project) =>{
             type: CHANGE_LOADING_PROJECTS,
             payload: true
         });
-        fetch("/projects", {
+        fetch(baseUrl+"/projects", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -83,7 +86,7 @@ export const updateProjects = (callback)=>{
             type: CHANGE_LOADING_PROJECTS,
             payload: true
         });
-        fetch("/projects")
+        fetch(baseUrl+"/projects")
         .then((response)=>{
             if (!response.ok) {
                 throw Error(response.statusText);
@@ -120,7 +123,7 @@ export const deleteProject = (idProject)=>{
             type: CHANGE_LOADING_PROJECTS,
             payload: true
         });
-        fetch("/projects/"+idProject, {
+        fetch(baseUrl+"/projects/"+idProject, {
             method: 'DELETE'
         })
         .then((response)=>{
@@ -155,7 +158,7 @@ export const updateServices = (idProject)=>{
                 type: CHANGE_LOADING_SERVICES,
                 payload: { idProject, loading: true }
             });
-            fetch("/projects/"+idProject+"/services")
+            fetch(baseUrl+"/projects/"+idProject+"/services")
             .then((response)=>{
                 if (!response.ok) {
                     throw Error(response.statusText);
@@ -192,7 +195,7 @@ export const deleteService = (idProject, idService)=>{
             type: CHANGE_LOADING_SERVICES,
             payload: { idProject, loading: true }
         });
-        fetch("/projects/"+idProject+"/services/"+idService, {
+        fetch(baseUrl+"/projects/"+idProject+"/services/"+idService, {
             method: 'DELETE'
         })
         .then((response)=>{
