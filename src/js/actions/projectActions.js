@@ -1,7 +1,7 @@
 import {UPDATE_PROJECTS, ADD_SERVICES, ADD_PROJECT, CHANGE_LOADING_PROJECTS, CHANGE_LOADING_SERVICES, UPDATE_SERVICES, DELETE_PROJECTS, DELETE_SERVICE} from "./actionTypes";
 import {showError} from './appActions';
 
-const isLocal=true;
+const isLocal=false;
 let baseUrl=isLocal?"http://localhost:9080":""
 
 export const addService= (idProject, service) =>{
