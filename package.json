@@ -35,7 +35,7 @@
     "react-app-polyfill": "1.0.1"
   },
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "node server.js",
     "startFrontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
